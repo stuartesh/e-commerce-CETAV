@@ -1,0 +1,5 @@
+name = Producto Config
+description = Configuracion del tipo de contenido
+core = 7.x
+package = Features
+features[features_api][] = api:2

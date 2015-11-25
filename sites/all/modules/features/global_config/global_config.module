@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Global Config feature.
+ */
+
+include_once 'global_config.features.inc';
