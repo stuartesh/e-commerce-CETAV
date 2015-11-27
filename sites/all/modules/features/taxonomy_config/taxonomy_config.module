@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Taxonomy Config feature.
- */
-
-include_once 'taxonomy_config.features.inc';
