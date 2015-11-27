@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * global_config.features.taxonomy.inc
+ * global.features.taxonomy.inc
  */
 
 /**
  * Implements hook_taxonomy_default_vocabularies().
  */
-function global_config_taxonomy_default_vocabularies() {
+function global_taxonomy_default_vocabularies() {
   return array(
     'categorias' => array(
       'name' => 'Categorias',
