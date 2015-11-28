@@ -12,3 +12,4 @@ features[views_view][] = productos_destacados
 features[views_view][] = productos_relacionados
 features[views_view][] = review_mas_reciente
 features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/features

@@ -33,3 +33,4 @@ features[variable][] = taxonomy_menu_voc_item_description_categorias
 features[variable][] = taxonomy_menu_voc_name_categorias
 features[variable][] = taxonomy_menu_vocab_menu_categorias
 features[variable][] = taxonomy_menu_vocab_parent_categorias
+project path = sites/all/modules/features

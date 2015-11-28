@@ -72,6 +72,7 @@ function global_strongarm() {
   $strongarm->name = 'node_options_producto';
   $strongarm->value = array(
     0 => 'status',
+    1 => 'promote',
   );
   $export['node_options_producto'] = $strongarm;
 
@@ -170,7 +171,7 @@ function global_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_vocab_parent_categorias';
-  $strongarm->value = '691';
+  $strongarm->value = '0';
   $export['taxonomy_menu_vocab_parent_categorias'] = $strongarm;
 
   $strongarm = new stdClass();

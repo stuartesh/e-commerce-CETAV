@@ -23,3 +23,4 @@ features[ds_view_modes][] = comentario_mas_reciente
 features[ds_view_modes][] = destacados
 features[ds_view_modes][] = relacionado
 features[features_api][] = api:2
+project path = sites/all/modules/features

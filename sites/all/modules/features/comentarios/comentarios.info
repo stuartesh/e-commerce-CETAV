@@ -4,6 +4,7 @@ package = Features
 dependencies[] = features
 dependencies[] = fivestar
 dependencies[] = text
+dependencies[] = tipo_de_producto
 features[features_api][] = api:2
 features[field_base][] = comment_body
 features[field_instance][] = comment-comment_node_article-comment_body

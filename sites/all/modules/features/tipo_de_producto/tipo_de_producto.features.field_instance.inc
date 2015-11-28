@@ -47,9 +47,13 @@ function tipo_de_producto_field_default_field_instances() {
         'weight' => 2,
       ),
       'relacionado' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'inline',
+        'module' => 'ds',
+        'settings' => array(
+          'taxonomy_term_reference_view_mode' => 'categorias',
+          'use_content_language' => 1,
+        ),
+        'type' => 'ds_taxonomy_view_mode',
         'weight' => 2,
       ),
       'teaser' => array(
@@ -225,12 +229,13 @@ function tipo_de_producto_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'flexslider_fields',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => 'medium',
+          'caption' => 0,
+          'image_style' => 'img-slider',
+          'optionset' => 'imagenes_producto',
         ),
-        'type' => 'image',
+        'type' => 'flexslider',
         'weight' => 0,
       ),
       'destacados' => array(
