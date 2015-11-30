@@ -1,0 +1,5 @@
+name = Filtros Por Categoria
+description = Crea links en base a categorias cargados por ajax
+package = Views
+core = 7.x
+dependencies[] = views

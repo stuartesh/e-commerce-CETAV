@@ -22,64 +22,64 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Home';
+  $handler->display->display_options['title'] = 'Inicio';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '0';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '5';
+  $handler->display->display_options['style_options']['alignment'] = 'vertical';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Footer: Global: View area */
-  $handler->display->display_options['footer']['view_1']['id'] = 'view_1';
-  $handler->display->display_options['footer']['view_1']['table'] = 'views';
-  $handler->display->display_options['footer']['view_1']['field'] = 'view';
-  $handler->display->display_options['footer']['view_1']['label'] = 'Listado de categorias';
-  $handler->display->display_options['footer']['view_1']['view_to_insert'] = 'listado_de_categorias:block';
-  /* Footer: Global: View area */
-  $handler->display->display_options['footer']['view']['id'] = 'view';
-  $handler->display->display_options['footer']['view']['table'] = 'views';
-  $handler->display->display_options['footer']['view']['field'] = 'view';
-  $handler->display->display_options['footer']['view']['label'] = 'Productos Destacados';
-  $handler->display->display_options['footer']['view']['view_to_insert'] = 'productos_relacionados:block';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = 1;
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'page' => 'page',
-  );
+  $handler->display->display_options['row_options']['view_mode'] = 'destacados';
 
   /* Display: Home */
-  $handler = $view->new_display('page', 'Home', 'page');
-  $handler->display->display_options['path'] = 'home';
+  $handler = $view->new_display('page', 'Home', 'pagina_inicio');
+  $handler->display->display_options['path'] = 'inicio';
+
+  /* Display: Attachment */
+  $handler = $view->new_display('attachment', 'Attachment', 'attachment_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Categorias';
+  $handler->display->display_options['display_description'] = 'Categorias';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'grid';
+  $handler->display->display_options['style_options']['columns'] = '5';
+  $handler->display->display_options['style_options']['alignment'] = 'vertical';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'node';
+  $handler->display->display_options['row_options']['view_mode'] = 'categorizado';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: All taxonomy terms */
+  $handler->display->display_options['fields']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['fields']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['fields']['term_node_tid']['label'] = 'Categorías';
+  $handler->display->display_options['fields']['term_node_tid']['type'] = 'ul';
+  $handler->display->display_options['fields']['term_node_tid']['limit'] = TRUE;
+  $handler->display->display_options['fields']['term_node_tid']['vocabularies'] = array(
+    'categorias' => 'categorias',
+  );
   $translatables['home'] = array(
     t('Master'),
-    t('Home'),
+    t('Inicio'),
     t('more'),
     t('Apply'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Listado de categorias'),
-    t('Productos Destacados'),
+    t('Home'),
+    t('Attachment'),
+    t('Categorias'),
+    t('Categorías'),
   );
   $export['home'] = $view;
 
@@ -169,81 +169,31 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Listado de productos por categoría';
+  $handler->display->display_options['css_class'] = 'categorias-preview';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['exposed_form']['options']['autosubmit'] = TRUE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '12';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '4';
   $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'categories-preview-item';
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'ds';
+  $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['row_options']['view_mode'] = 'categorizado';
-  $handler->display->display_options['row_options']['load_comments'] = 0;
-  $handler->display->display_options['row_options']['alternating'] = 0;
-  $handler->display->display_options['row_options']['grouping'] = 0;
-  $handler->display->display_options['row_options']['advanced'] = 0;
-  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
-  $handler->display->display_options['row_options']['grouping_fieldset']['group_field'] = 'node|created';
-  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'categorizado';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['row_options']['links'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Contextual filter: Content: Has taxonomy term ID (with depth) */
-  $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_options']['term_page'] = FALSE;
-  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_options']['node'] = TRUE;
-  $handler->display->display_options['arguments']['term_node_tid_depth']['default_argument_options']['vocabularies'] = array(
-    'categorias' => 'categorias',
-  );
-  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['term_node_tid_depth']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['validate_options']['vocabularies'] = array(
-    'categorias' => 'categorias',
-  );
-  $handler->display->display_options['arguments']['term_node_tid_depth']['validate']['fail'] = 'empty';
-  $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '0';
-  /* Contextual filter: Content: Has taxonomy term ID depth modifier */
-  $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['id'] = 'term_node_tid_depth_modifier';
-  $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['table'] = 'node';
-  $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['field'] = 'term_node_tid_depth_modifier';
-  $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['term_node_tid_depth_modifier']['summary']['format'] = 'default_summary';
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'taxonomy_term';
-  $handler->display->display_options['arguments']['nid']['validate_options']['vocabularies'] = array(
-    'categorias' => 'categorias',
-  );
-  $handler->display->display_options['arguments']['nid']['not'] = TRUE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -258,21 +208,56 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'producto' => 'producto',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Categoria (field_categoria) */
+  $handler->display->display_options['filters']['field_categoria_tid']['id'] = 'field_categoria_tid';
+  $handler->display->display_options['filters']['field_categoria_tid']['table'] = 'field_data_field_categoria';
+  $handler->display->display_options['filters']['field_categoria_tid']['field'] = 'field_categoria_tid';
+  $handler->display->display_options['filters']['field_categoria_tid']['value'] = array(
+    40 => '40',
+    42 => '42',
+    41 => '41',
+    43 => '43',
+    44 => '44',
+    45 => '45',
+    46 => '46',
+    39 => '39',
+  );
+  $handler->display->display_options['filters']['field_categoria_tid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_categoria_tid']['expose']['operator_id'] = 'field_categoria_tid_op';
+  $handler->display->display_options['filters']['field_categoria_tid']['expose']['label'] = 'Categorías';
+  $handler->display->display_options['filters']['field_categoria_tid']['expose']['operator'] = 'field_categoria_tid_op';
+  $handler->display->display_options['filters']['field_categoria_tid']['expose']['identifier'] = 'field_categoria_tid';
+  $handler->display->display_options['filters']['field_categoria_tid']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+  );
+  $handler->display->display_options['filters']['field_categoria_tid']['type'] = 'select';
+  $handler->display->display_options['filters']['field_categoria_tid']['vocabulary'] = 'categorias';
+  $handler->display->display_options['filters']['field_categoria_tid']['error_message'] = FALSE;
 
-  /* Display: Productos por categoria */
-  $handler = $view->new_display('page', 'Productos por categoria', 'page');
-  $handler->display->display_options['path'] = 'categoria/%';
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'listado_productos');
+  $handler->display->display_options['block_description'] = 'Productos por categorias';
   $translatables['listado_de_productos'] = array(
     t('Master'),
-    t('Listado de productos por categoría'),
     t('more'),
     t('Apply'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('All'),
-    t('Productos por categoria'),
+    t('Items per page'),
+    t('- All -'),
+    t('Offset'),
+    t('« first'),
+    t('‹ previous'),
+    t('next ›'),
+    t('last »'),
+    t('Categorías'),
+    t('Block'),
+    t('Productos por categorias'),
   );
   $export['listado_de_productos'] = $view;
 
@@ -369,6 +354,8 @@ function vistas_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Productos Relacionados';
+  $handler->display->display_options['css_class'] = 'releated-items-tax';
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -377,9 +364,14 @@ function vistas_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'semanticviews_default';
+  $handler->display->display_options['style_options']['list']['element_type'] = 'ul';
+  $handler->display->display_options['style_options']['list']['class'] = 'related-items-list';
+  $handler->display->display_options['style_options']['row']['element_type'] = 'li';
+  $handler->display->display_options['style_options']['row']['class'] = 'related-items';
+  $handler->display->display_options['style_options']['row']['first_class'] = '';
+  $handler->display->display_options['style_options']['row']['last_class'] = '';
+  $handler->display->display_options['style_options']['row']['striping_classes'] = '';
   $handler->display->display_options['row_plugin'] = 'ds';
   $handler->display->display_options['row_options']['view_mode'] = 'relacionado';
   $handler->display->display_options['row_options']['load_comments'] = 0;
@@ -393,8 +385,6 @@ function vistas_views_default_views() {
   $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
   $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
   $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
-  $handler->display->display_options['relationships']['term_node_tid']['label'] = 'Taxonomías relacionas';
-  $handler->display->display_options['relationships']['term_node_tid']['required'] = TRUE;
   $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
     'categorias' => 'categorias',
   );
@@ -410,6 +400,27 @@ function vistas_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Taxonomy term: Term ID */
+  $handler->display->display_options['arguments']['tid']['id'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['arguments']['tid']['field'] = 'tid';
+  $handler->display->display_options['arguments']['tid']['relationship'] = 'term_node_tid';
+  $handler->display->display_options['arguments']['tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['tid']['default_argument_options']['node'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['default_argument_options']['anyall'] = '+';
+  $handler->display->display_options['arguments']['tid']['default_argument_options']['limit'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['default_argument_options']['vocabularies'] = array(
+    'categorias' => 'categorias',
+  );
+  $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['tid']['validate_options']['vocabularies'] = array(
+    'categorias' => 'categorias',
+  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -427,7 +438,8 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['type']['group'] = 1;
 
   /* Display: Productos Relacionados */
-  $handler = $view->new_display('block', 'Productos Relacionados', 'block');
+  $handler = $view->new_display('block', 'Productos Relacionados', 'productos_relacionados');
+  $handler->display->display_options['block_description'] = 'Productos Relacionados';
   $translatables['productos_relacionados'] = array(
     t('Master'),
     t('Productos Relacionados'),
@@ -437,7 +449,8 @@ function vistas_views_default_views() {
     t('Sort by'),
     t('Asc'),
     t('Desc'),
-    t('Taxonomías relacionas'),
+    t('term'),
+    t('All'),
   );
   $export['productos_relacionados'] = $view;
 
@@ -454,6 +467,7 @@ function vistas_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Review más reciente';
+  $handler->display->display_options['css_class'] = 'lastest-review';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access comments';
@@ -462,9 +476,10 @@ function vistas_views_default_views() {
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'semanticviews_default';
+  $handler->display->display_options['style_options']['row']['first_class'] = '';
+  $handler->display->display_options['style_options']['row']['last_class'] = '';
+  $handler->display->display_options['style_options']['row']['striping_classes'] = '';
   $handler->display->display_options['row_plugin'] = 'ds';
   $handler->display->display_options['row_options']['view_mode'] = 'comentario_mas_reciente';
   $handler->display->display_options['row_options']['alternating'] = 0;
@@ -507,8 +522,9 @@ function vistas_views_default_views() {
   $handler->display->display_options['filters']['status_node']['group'] = 1;
   $handler->display->display_options['filters']['status_node']['expose']['operator'] = FALSE;
 
-  /* Display: Block */
-  $handler = $view->new_display('block', 'Block', 'block');
+  /* Display: Review más reciente */
+  $handler = $view->new_display('block', 'Review más reciente', 'review_final');
+  $handler->display->display_options['block_description'] = 'Review más reciente';
   $translatables['review_mas_reciente'] = array(
     t('Master'),
     t('Review más reciente'),
@@ -519,7 +535,6 @@ function vistas_views_default_views() {
     t('Asc'),
     t('Desc'),
     t('Content'),
-    t('Block'),
   );
   $export['review_mas_reciente'] = $view;
 

@@ -8,9 +8,49 @@
  * Implements hook_ctools_plugin_api().
  */
 function tipo_de_producto_ctools_plugin_api($module = NULL, $api = NULL) {
+  if ($module == "context" && $api == "context") {
+    return array("version" => "3");
+  }
+  if ($module == "ds" && $api == "ds") {
+    return array("version" => "1");
+  }
+  if ($module == "flexslider" && $api == "flexslider_default_preset") {
+    return array("version" => "1");
+  }
+  if ($module == "page_manager" && $api == "pages_default") {
+    return array("version" => "1");
+  }
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function tipo_de_producto_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function tipo_de_producto_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: prendas_destacadas.
+  $styles['prendas_destacadas'] = array(
+    'label' => 'Prendas Destacadas',
+    'effects' => array(),
+  );
+
+  // Exported image style: prendas_favoritas.
+  $styles['prendas_favoritas'] = array(
+    'label' => 'Prendas Destacadas',
+    'effects' => array(),
+  );
+
+  return $styles;
 }
 
 /**

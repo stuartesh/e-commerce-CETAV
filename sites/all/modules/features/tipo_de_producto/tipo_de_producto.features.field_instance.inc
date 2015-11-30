@@ -50,7 +50,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'inline',
         'module' => 'ds',
         'settings' => array(
-          'taxonomy_term_reference_view_mode' => 'categorias',
+          'taxonomy_term_reference_view_mode' => 'full',
           'use_content_language' => 1,
         ),
         'type' => 'ds_taxonomy_view_mode',
@@ -116,7 +116,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -182,7 +182,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -229,13 +229,12 @@ function tipo_de_producto_field_default_field_instances() {
       ),
       'default' => array(
         'label' => 'hidden',
-        'module' => 'flexslider_fields',
+        'module' => 'image',
         'settings' => array(
-          'caption' => 0,
-          'image_style' => 'img-slider',
-          'optionset' => 'imagenes_producto',
+          'image_link' => '',
+          'image_style' => 'medium',
         ),
-        'type' => 'flexslider',
+        'type' => 'image',
         'weight' => 0,
       ),
       'destacados' => array(
@@ -414,7 +413,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -429,6 +428,10 @@ function tipo_de_producto_field_default_field_instances() {
     'label' => 'Precio',
     'required' => 1,
     'settings' => array(
+      'max' => '',
+      'min' => '',
+      'prefix' => '',
+      'suffix' => '',
       'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
@@ -502,7 +505,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'teaser' => array(
         'label' => 'inline',
@@ -597,7 +600,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'hidden',

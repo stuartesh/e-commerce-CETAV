@@ -1,7 +1,11 @@
 name = Vistas
 core = 7.x
 package = Features
+dependencies[] = better_exposed_filters
+dependencies[] = ctools
 dependencies[] = ds
+dependencies[] = flexslider_views
+dependencies[] = semanticviews
 dependencies[] = views
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
@@ -11,5 +15,4 @@ features[views_view][] = listado_de_productos
 features[views_view][] = productos_destacados
 features[views_view][] = productos_relacionados
 features[views_view][] = review_mas_reciente
-features_exclude[dependencies][ctools] = ctools
 project path = sites/all/modules/features
