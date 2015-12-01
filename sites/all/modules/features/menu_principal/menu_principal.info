@@ -1,0 +1,16 @@
+name = Menu principal
+description = Links del menu
+core = 7.x
+package = Features
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = menu
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[menu_custom][] = main-menu
+features[menu_links][] = main-menu_cmo-comprar:<front>
+features[menu_links][] = main-menu_contacto:<front>
+features[variable][] = taxonomy_menu_hide_empty_terms_categorias
+features[variable][] = taxonomy_menu_term_item_description_categorias
+features[variable][] = taxonomy_menu_voc_item_categorias
