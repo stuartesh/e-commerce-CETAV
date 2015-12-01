@@ -52,11 +52,6 @@ function display_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'comment_node_producto';
   $ds_fieldsetting->view_mode = 'comentario_mas_reciente';
   $ds_fieldsetting->settings = array(
-    'post_date' => array(
-      'weight' => '6',
-      'label' => 'inline',
-      'format' => 'ds_post_date_long',
-    ),
     'title' => array(
       'weight' => '2',
       'label' => 'inline',
@@ -107,9 +102,14 @@ function display_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'producto';
   $ds_fieldsetting->view_mode = 'full';
   $ds_fieldsetting->settings = array(
+    'productos_relacionados' => array(
+      'weight' => '8',
+      'label' => 'hidden',
+      'format' => 'default',
+    ),
     'ultimo_comentario' => array(
       'weight' => '6',
-      'label' => 'inline',
+      'label' => 'above',
       'format' => 'default',
     ),
     'comments' => array(
@@ -119,6 +119,46 @@ function display_ds_field_settings_info() {
     ),
   );
   $export['node|producto|full'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'node|producto|relacionado';
+  $ds_fieldsetting->entity_type = 'node';
+  $ds_fieldsetting->bundle = 'producto';
+  $ds_fieldsetting->view_mode = 'relacionado';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '0',
+        'wrapper' => 'h2',
+        'class' => '',
+      ),
+    ),
+  );
+  $export['node|producto|relacionado'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'taxonomy_term|categorias|categorias';
+  $ds_fieldsetting->entity_type = 'taxonomy_term';
+  $ds_fieldsetting->bundle = 'categorias';
+  $ds_fieldsetting->view_mode = 'categorias';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '0',
+      'label' => 'inline',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '0',
+        'wrapper' => 'p',
+        'class' => '',
+      ),
+    ),
+  );
+  $export['taxonomy_term|categorias|categorias'] = $ds_fieldsetting;
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
@@ -144,6 +184,45 @@ function display_ds_field_settings_info() {
 }
 
 /**
+ * Implements hook_ds_custom_fields_info().
+ */
+function display_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'productos_relacionados';
+  $ds_field->label = 'Productos Relacionados';
+  $ds_field->field_type = 6;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'block' => 'views|dfec8c15c87925e2a4be6a68e0181693',
+    'block_render' => '2',
+  );
+  $export['productos_relacionados'] = $ds_field;
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'ultimo_comentario';
+  $ds_field->label = 'Ultimo comentario';
+  $ds_field->field_type = 6;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'block' => 'views|12bfab818481b634db145907c8e6ff1b',
+    'block_render' => '1',
+  );
+  $export['ultimo_comentario'] = $ds_field;
+
+  return $export;
+}
+
+/**
  * Implements hook_ds_layout_settings_info().
  */
 function display_ds_layout_settings_info() {
@@ -164,7 +243,6 @@ function display_ds_layout_settings_info() {
         2 => 'title',
         3 => 'field_rating',
         4 => 'comment_body',
-        5 => 'post_date',
       ),
     ),
     'fields' => array(
@@ -173,7 +251,6 @@ function display_ds_layout_settings_info() {
       'title' => 'ds_content',
       'field_rating' => 'ds_content',
       'comment_body' => 'ds_content',
-      'post_date' => 'ds_content',
     ),
     'classes' => array(
       'layout_class' => array(
@@ -283,8 +360,9 @@ function display_ds_layout_settings_info() {
         5 => 'field_precio',
         6 => 'ultimo_comentario',
         7 => 'field_descripcion',
-        8 => 'field_video_producto',
-        9 => 'comments',
+        8 => 'productos_relacionados',
+        9 => 'field_video_producto',
+        10 => 'comments',
       ),
     ),
     'fields' => array(
@@ -296,12 +374,16 @@ function display_ds_layout_settings_info() {
       'field_precio' => 'ds_content',
       'ultimo_comentario' => 'ds_content',
       'field_descripcion' => 'ds_content',
+      'productos_relacionados' => 'ds_content',
       'field_video_producto' => 'ds_content',
       'comments' => 'ds_content',
     ),
     'classes' => array(
       'layout_class' => array(
         '' => '',
+      ),
+      'ds_content' => array(
+        'content-section' => 'content-section',
       ),
     ),
     'wrappers' => array(
@@ -326,14 +408,17 @@ function display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_imagen',
-        1 => 'field_nombre_producto',
+        1 => 'title',
         2 => 'field_categoria',
       ),
     ),
     'fields' => array(
       'field_imagen' => 'ds_content',
-      'field_nombre_producto' => 'ds_content',
+      'title' => 'ds_content',
       'field_categoria' => 'ds_content',
+    ),
+    'limit' => array(
+      'field_imagen' => '1',
     ),
     'classes' => array(
       'layout_class' => array(

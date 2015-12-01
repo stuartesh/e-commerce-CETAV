@@ -33,27 +33,6 @@ function tipo_de_producto_views_api($module = NULL, $api = NULL) {
 }
 
 /**
- * Implements hook_image_default_styles().
- */
-function tipo_de_producto_image_default_styles() {
-  $styles = array();
-
-  // Exported image style: prendas_destacadas.
-  $styles['prendas_destacadas'] = array(
-    'label' => 'Prendas Destacadas',
-    'effects' => array(),
-  );
-
-  // Exported image style: prendas_favoritas.
-  $styles['prendas_favoritas'] = array(
-    'label' => 'Prendas Destacadas',
-    'effects' => array(),
-  );
-
-  return $styles;
-}
-
-/**
  * Implements hook_node_info().
  */
 function tipo_de_producto_node_info() {
@@ -63,7 +42,7 @@ function tipo_de_producto_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Nombre del producto'),
       'help' => '',
     ),
   );
