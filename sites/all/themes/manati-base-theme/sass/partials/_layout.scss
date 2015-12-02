@@ -1,3 +1,187 @@
 //
 // General layout rules
 //
+
+body {
+   @include outer-container($max-width);
+   @include font-size(18);
+   font-family: $font;
+   color: #000;
+   background: url(../img/header.png) repeat;
+}
+
+div[role=main] {
+   @include span-columns(12);
+   @include media(max-width $tablet, 6);
+   @include media(max-width $mobile-large, 2);
+}
+
+ul li a.active {
+   color: $font-secundary-color;
+}
+
+a {
+  color: $main-color;
+}
+
+a:hover, p a:hover {
+  color: $main-color;
+}
+.title {
+   text-align: center;
+}
+
+ul {
+
+}
+.site-name > a {
+   color: #000;
+}
+
+.header {
+   @include span-columns(12);
+   @include media(max-width $tablet, 6);
+   @include media(max-width $mobile-large, 1);
+}
+
+.site-name {
+   @include font-size(22);
+   margin: 30px;
+}
+
+.menu {
+   background-color: $main-color;
+   @include span-columns(12);
+   @include media(max-width $mobile-large) {
+      @include span-columns(1);
+   }
+   a {
+    color : $font-secundary-color;
+   }
+}
+
+.menu > li {
+   @include font-size(21);
+   @include span-columns(3);
+   @include media(max-width $tablet) {
+      @include span-columns(3);
+   }
+   list-style: none;
+   display: inline-block;
+   padding: 15px 4px 17px 0;
+   position: relative;
+   cursor : pointer;
+   color: $font-secundary-color;
+}
+
+.expanded > ul {
+  padding: 0;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 150px;
+  visibility: hidden;
+  display: none;
+}
+
+.homepage .slides img {
+    width: initial;
+    display: inline-block;
+}
+
+.slides .overlay, .featured-items .overlay {
+   box-shadow: 1px 1px 2px #e6e6e6;
+   text-align: center;
+}
+
+.item-list {
+  list-style: none;
+}
+
+.overlay {
+   @include span-columns(6);
+}
+
+.featured-items {
+   @include span-columns(12);
+   list-style: none;
+   text-align: center;
+   li {
+    @include span-columns(4);
+   }
+   p {
+    @include font-size(18);
+  }
+}
+
+.categorias-preview {
+  @include span-columns(12);
+  text-align: center;
+  label:first-child {
+    @include font-size(24);
+  }
+  .views-exposed-widget:first-child {
+    @include span-columns(12);
+  }
+  .bef-select-as-radios input {
+    display: none;
+    &:checked ~ label {
+      color : $main-color;
+      text-decoration: underline;
+    }
+  }
+  .form-type-radio {
+    display: inline-block;
+    label {
+      @include font-size(21);
+      cursor: pointer;
+      &:hover {
+        color: $main-color;
+      }
+    }
+  }
+  .description {
+    visibility: hidden;
+    display: none;
+  }
+  .form-radios {
+    padding: 5%;
+  }
+  .view-content li{
+    @include span-columns(3.5);
+  }
+}
+
+.group-header {
+  @include span-columns(4);
+}
+
+.group-left {
+  @include span-columns(6);
+}
+
+.group-footer{
+  @include span-columns(12);
+  h2 {
+    text-align: center;
+    margin : 50px;
+  }
+  .related-list {
+    text-align: center;
+    li {
+      @include span-columns(4);
+    }
+    h3 {
+      @include font-size(18);
+      margin: 20px;
+    }
+  }
+  .comment-wrapper {
+
+  }
+}
+
+.view-footer {
+  @include span-columns(12);
+
+}

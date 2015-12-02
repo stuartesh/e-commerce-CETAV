@@ -121,13 +121,15 @@ function comentarios_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_plain',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
+        'settings' => array(
+          'trim_length' => 100,
+        ),
+        'type' => 'text_trimmed',
         'weight' => 4,
       ),
     ),
@@ -158,7 +160,7 @@ function comentarios_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'comentario_mas_reciente' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'fivestar',
         'settings' => array(
           'expose' => TRUE,
@@ -169,15 +171,15 @@ function comentarios_field_default_field_instances() {
           ),
         ),
         'type' => 'fivestar_formatter_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'default' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'fivestar',
         'settings' => array(
           'expose' => TRUE,
-          'style' => 'user',
-          'text' => 'user',
+          'style' => 'average',
+          'text' => 'average',
           'widget' => array(
             'fivestar_widget' => 'sites/all/modules/fivestar/widgets/basic/basic.css',
           ),

@@ -53,18 +53,13 @@ function display_ds_field_settings_info() {
   $ds_fieldsetting->view_mode = 'comentario_mas_reciente';
   $ds_fieldsetting->settings = array(
     'title' => array(
-      'weight' => '2',
-      'label' => 'inline',
-      'format' => 'default',
-    ),
-    'author' => array(
       'weight' => '1',
-      'label' => 'inline',
+      'label' => 'hidden',
       'format' => 'default',
     ),
     'ds_user_picture' => array(
       'weight' => '0',
-      'label' => 'inline',
+      'label' => 'hidden',
       'format' => 'ds_picture_thumbnail',
     ),
   );
@@ -90,7 +85,7 @@ function display_ds_field_settings_info() {
     'ds_user_picture' => array(
       'weight' => '0',
       'label' => 'hidden',
-      'format' => 'ds_picture_flexslider_full',
+      'format' => 'ds_picture_thumbnail_retina',
     ),
   );
   $export['comment|comment_node_producto|default'] = $ds_fieldsetting;
@@ -113,8 +108,8 @@ function display_ds_field_settings_info() {
       'format' => 'default',
     ),
     'comments' => array(
-      'weight' => '10',
-      'label' => 'inline',
+      'weight' => '9',
+      'label' => 'above',
       'format' => 'default',
     ),
   );
@@ -132,8 +127,8 @@ function display_ds_field_settings_info() {
       'label' => 'hidden',
       'format' => 'default',
       'formatter_settings' => array(
-        'link' => '0',
-        'wrapper' => 'h2',
+        'link' => '1',
+        'wrapper' => 'h3',
         'class' => '',
       ),
     ),
@@ -239,15 +234,13 @@ function display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'ds_user_picture',
-        1 => 'author',
-        2 => 'title',
-        3 => 'field_rating',
-        4 => 'comment_body',
+        1 => 'title',
+        2 => 'field_rating',
+        3 => 'comment_body',
       ),
     ),
     'fields' => array(
       'ds_user_picture' => 'ds_content',
-      'author' => 'ds_content',
       'title' => 'ds_content',
       'field_rating' => 'ds_content',
       'comment_body' => 'ds_content',
@@ -279,16 +272,17 @@ function display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_imagen',
-        1 => 'field_nombre_producto',
+        1 => 'title',
         2 => 'field_precio',
-        3 => 'field_categoria',
       ),
     ),
     'fields' => array(
       'field_imagen' => 'ds_content',
-      'field_nombre_producto' => 'ds_content',
+      'title' => 'ds_content',
       'field_precio' => 'ds_content',
-      'field_categoria' => 'ds_content',
+    ),
+    'limit' => array(
+      'field_imagen' => '2',
     ),
     'classes' => array(
       'layout_class' => array(
@@ -317,14 +311,15 @@ function display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_imagen',
-        1 => 'field_nombre_producto',
-        2 => 'field_precio',
+        1 => 'title',
       ),
     ),
     'fields' => array(
       'field_imagen' => 'ds_content',
-      'field_nombre_producto' => 'ds_content',
-      'field_precio' => 'ds_content',
+      'title' => 'ds_content',
+    ),
+    'limit' => array(
+      'field_imagen' => '1',
     ),
     'classes' => array(
       'layout_class' => array(
@@ -348,52 +343,55 @@ function display_ds_layout_settings_info() {
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'producto';
   $ds_layout->view_mode = 'full';
-  $ds_layout->layout = 'ds_reset';
+  $ds_layout->layout = 'ds_2col_stacked';
   $ds_layout->settings = array(
     'regions' => array(
-      'ds_content' => array(
+      'header' => array(
         0 => 'field_imagen',
-        1 => 'field_nombre_producto',
-        2 => 'field_categoria',
-        3 => 'field_fabricante',
-        4 => 'field_rating',
-        5 => 'field_precio',
+      ),
+      'left' => array(
+        1 => 'field_categoria',
+        2 => 'field_fabricante',
+        3 => 'field_rating',
+        4 => 'field_precio',
+        5 => 'field_descripcion',
         6 => 'ultimo_comentario',
-        7 => 'field_descripcion',
+      ),
+      'footer' => array(
+        7 => 'field_video_producto',
         8 => 'productos_relacionados',
-        9 => 'field_video_producto',
-        10 => 'comments',
+        9 => 'comments',
       ),
     ),
     'fields' => array(
-      'field_imagen' => 'ds_content',
-      'field_nombre_producto' => 'ds_content',
-      'field_categoria' => 'ds_content',
-      'field_fabricante' => 'ds_content',
-      'field_rating' => 'ds_content',
-      'field_precio' => 'ds_content',
-      'ultimo_comentario' => 'ds_content',
-      'field_descripcion' => 'ds_content',
-      'productos_relacionados' => 'ds_content',
-      'field_video_producto' => 'ds_content',
-      'comments' => 'ds_content',
+      'field_imagen' => 'header',
+      'field_categoria' => 'left',
+      'field_fabricante' => 'left',
+      'field_rating' => 'left',
+      'field_precio' => 'left',
+      'field_descripcion' => 'left',
+      'ultimo_comentario' => 'left',
+      'field_video_producto' => 'footer',
+      'productos_relacionados' => 'footer',
+      'comments' => 'footer',
     ),
     'classes' => array(
       'layout_class' => array(
         '' => '',
       ),
-      'ds_content' => array(
-        'content-section' => 'content-section',
-      ),
     ),
     'wrappers' => array(
-      'ds_content' => 'div',
+      'header' => 'div',
+      'left' => 'div',
+      'right' => 'div',
+      'footer' => 'div',
     ),
     'layout_wrapper' => 'div',
     'layout_attributes' => '',
     'layout_attributes_merge' => 1,
     'layout_link_attribute' => '',
     'layout_link_custom' => '',
+    'layout_disable_css' => 0,
   );
   $export['node|producto|full'] = $ds_layout;
 
@@ -409,13 +407,11 @@ function display_ds_layout_settings_info() {
       'ds_content' => array(
         0 => 'field_imagen',
         1 => 'title',
-        2 => 'field_categoria',
       ),
     ),
     'fields' => array(
       'field_imagen' => 'ds_content',
       'title' => 'ds_content',
-      'field_categoria' => 'ds_content',
     ),
     'limit' => array(
       'field_imagen' => '1',
@@ -447,7 +443,7 @@ function display_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'field_imagen',
-        1 => 'field_nombre_producto',
+        1 => 'title',
         2 => 'field_fabricante',
         3 => 'field_rating',
         4 => 'field_precio',
@@ -457,7 +453,7 @@ function display_ds_layout_settings_info() {
     ),
     'fields' => array(
       'field_imagen' => 'ds_content',
-      'field_nombre_producto' => 'ds_content',
+      'title' => 'ds_content',
       'field_fabricante' => 'ds_content',
       'field_rating' => 'ds_content',
       'field_precio' => 'ds_content',

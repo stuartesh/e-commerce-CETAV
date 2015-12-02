@@ -6,14 +6,16 @@
 $sprite-image: "../images/global-sprite";
 
 // Typography
-
+$font: serif;
+$font-titles: 24;
 
 // Colors
-
+$main-color: #996B6B;
+$font-secundary-color: #fff;
 
 // Neat variables
 $max-width: 1200px;
-$grid-colums: 13;
+$grid-colums: 12;
 
 // Breakpoints
 $desktop: 1000px;

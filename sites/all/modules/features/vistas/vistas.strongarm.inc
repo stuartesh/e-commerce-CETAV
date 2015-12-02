@@ -15,8 +15,9 @@ function vistas_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'views_block_hashes';
   $strongarm->value = array(
-    '12bfab818481b634db145907c8e6ff1b' => 'review_mas_reciente-review_final',
+    '9314621fd7431fd837988b605daa5f09' => 'listado_de_productos-listado_productos',
     'dfec8c15c87925e2a4be6a68e0181693' => 'productos_relacionados-productos_relacionados',
+    '12bfab818481b634db145907c8e6ff1b' => 'review_mas_reciente-review_final',
   );
   $export['views_block_hashes'] = $strongarm;
 
@@ -31,10 +32,10 @@ function vistas_strongarm() {
     'productos_destacados' => TRUE,
     'review_mas_reciente' => FALSE,
     'admin_views_taxonomy_term' => FALSE,
-    'listado_de_productos' => TRUE,
     'taxonomy_term' => FALSE,
     'semantic_demo' => TRUE,
     'home' => TRUE,
+    'comments_recent' => FALSE,
   );
   $export['views_defaults'] = $strongarm;
 

@@ -195,7 +195,7 @@ function global_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_vocab_parent_categorias';
-  $strongarm->value = '691';
+  $strongarm->value = '667';
   $export['taxonomy_menu_vocab_parent_categorias'] = $strongarm;
 
   $strongarm = new stdClass();
