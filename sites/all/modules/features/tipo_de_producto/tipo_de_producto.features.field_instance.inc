@@ -21,7 +21,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'default' => array(
         'label' => 'above',
@@ -37,29 +37,30 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 15,
       ),
       'full' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 2,
+      ),
+      'relacionado' => array(
+        'label' => 'inline',
         'module' => 'ds',
         'settings' => array(
           'taxonomy_term_reference_view_mode' => 'full',
           'use_content_language' => 1,
         ),
         'type' => 'ds_taxonomy_view_mode',
-        'weight' => 1,
-      ),
-      'relacionado' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
         'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'node',
@@ -89,7 +90,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 15,
       ),
       'default' => array(
         'label' => 'above',
@@ -102,14 +103,14 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 13,
       ),
       'full' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 6,
       ),
       'relacionado' => array(
         'label' => 'above',
@@ -118,11 +119,10 @@ function tipo_de_producto_field_default_field_instances() {
         'weight' => 14,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
+        'label' => 'above',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 15,
       ),
     ),
     'entity_type' => 'node',
@@ -153,9 +153,10 @@ function tipo_de_producto_field_default_field_instances() {
     'display' => array(
       'categorizado' => array(
         'label' => 'inline',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 13,
+        'type' => 'text_default',
+        'weight' => 2,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -168,14 +169,14 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 14,
       ),
       'full' => array(
         'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'relacionado' => array(
         'label' => 'hidden',
@@ -206,7 +207,7 @@ function tipo_de_producto_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 7,
+      'weight' => 6,
     ),
   );
 
@@ -221,7 +222,7 @@ function tipo_de_producto_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'thumbnail_retina',
+          'image_style' => 'thumbnail',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -241,20 +242,19 @@ function tipo_de_producto_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'medium_retina',
+          'image_style' => 'thumbnail',
         ),
         'type' => 'image',
         'weight' => 0,
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'flexslider_fields',
+        'module' => 'image',
         'settings' => array(
-          'caption' => 0,
-          'image_style' => 'large_retina',
-          'optionset' => 'slide_producto',
+          'image_link' => '',
+          'image_style' => '',
         ),
-        'type' => 'flexslider',
+        'type' => 'image',
         'weight' => 0,
       ),
       'relacionado' => array(
@@ -262,7 +262,7 @@ function tipo_de_producto_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => 'content',
-          'image_style' => 'medium_retina',
+          'image_style' => 'thumbnail',
         ),
         'type' => 'image',
         'weight' => 0,
@@ -305,6 +305,75 @@ function tipo_de_producto_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-producto-field_nombre_producto'.
+  $field_instances['node-producto-field_nombre_producto'] = array(
+    'bundle' => 'producto',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'categorizado' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+      'destacados' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'relacionado' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_nombre_producto',
+    'label' => 'Nombre del producto',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-producto-field_precio'.
   $field_instances['node-producto-field_precio'] = array(
     'bundle' => 'producto',
@@ -313,63 +382,44 @@ function tipo_de_producto_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'categorizado' => array(
-        'label' => 'hidden',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 2,
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
       ),
       'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 8,
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
       ),
       'destacados' => array(
-        'label' => 'above',
+        'label' => 'inline',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 2,
       ),
       'full' => array(
-        'label' => 'hidden',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
-        'weight' => 4,
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 5,
       ),
       'relacionado' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 13,
       ),
       'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => '',
-        ),
-        'type' => 'number_integer',
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
         'weight' => 4,
       ),
     ),
@@ -380,16 +430,19 @@ function tipo_de_producto_field_default_field_instances() {
     'settings' => array(
       'max' => '',
       'min' => '',
-      'prefix' => '₡',
+      'prefix' => '',
       'suffix' => '',
+      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 5,
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 7,
     ),
   );
 
@@ -402,9 +455,17 @@ function tipo_de_producto_field_default_field_instances() {
     'display' => array(
       'categorizado' => array(
         'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 14,
+        'module' => 'fivestar',
+        'settings' => array(
+          'expose' => 0,
+          'style' => 'average',
+          'text' => 'average',
+          'widget' => array(
+            'fivestar_widget' => 'sites/all/modules/fivestar/widgets/basic/basic.css',
+          ),
+        ),
+        'type' => 'fivestar_formatter_default',
+        'weight' => 3,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -424,21 +485,21 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 3,
       ),
       'full' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'fivestar',
         'settings' => array(
           'expose' => 0,
           'style' => 'average',
-          'text' => 'none',
+          'text' => 'average',
           'widget' => array(
-            'fivestar_widget' => 'sites/all/modules/fivestar/widgets/basic/basic.css',
+            'fivestar_widget' => 'default',
           ),
         ),
         'type' => 'fivestar_formatter_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'relacionado' => array(
         'label' => 'hidden',
@@ -447,7 +508,7 @@ function tipo_de_producto_field_default_field_instances() {
         'weight' => 16,
       ),
       'teaser' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'fivestar',
         'settings' => array(
           'expose' => 0,
@@ -478,7 +539,7 @@ function tipo_de_producto_field_default_field_instances() {
       'module' => 'fivestar',
       'settings' => array(),
       'type' => 'exposed',
-      'weight' => 6,
+      'weight' => 5,
     ),
   );
 
@@ -493,7 +554,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 14,
       ),
       'default' => array(
         'label' => 'hidden',
@@ -516,7 +577,7 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -539,13 +600,13 @@ function tipo_de_producto_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'teaser' => array(
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'node',
@@ -571,6 +632,7 @@ function tipo_de_producto_field_default_field_instances() {
   t('Descripción');
   t('Fabricante');
   t('Imagen');
+  t('Nombre del producto');
   t('Precio');
   t('Video del producto');
 
