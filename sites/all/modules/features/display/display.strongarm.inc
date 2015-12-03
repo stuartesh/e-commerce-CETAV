@@ -31,13 +31,6 @@ function display_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'ds_classes_fields';
-  $strongarm->value = 'class-field';
-  $export['ds_classes_fields'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'ds_classes_regions';
   $strongarm->value = 'content-section';
   $export['ds_classes_regions'] = $strongarm;
@@ -94,13 +87,6 @@ function display_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'ds_extras_hide_page_sidebars';
-  $strongarm->value = 0;
-  $export['ds_extras_hide_page_sidebars'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'ds_extras_hide_page_title';
   $strongarm->value = 0;
   $export['ds_extras_hide_page_title'] = $strongarm;
@@ -111,13 +97,6 @@ function display_strongarm() {
   $strongarm->name = 'ds_extras_region_blocks';
   $strongarm->value = array();
   $export['ds_extras_region_blocks'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ds_extras_region_to_block';
-  $strongarm->value = 1;
-  $export['ds_extras_region_to_block'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -139,20 +118,6 @@ function display_strongarm() {
   $strongarm->name = 'ds_extras_vd';
   $strongarm->value = 1;
   $export['ds_extras_vd'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'ds_extras_view_modes_producto';
-  $strongarm->value = array(
-    0 => 'default',
-    1 => 'full',
-    2 => 'teaser',
-    3 => 'categorizado',
-    4 => 'destacados',
-    5 => 'relacionado',
-  );
-  $export['ds_extras_view_modes_producto'] = $strongarm;
 
   return $export;
 }

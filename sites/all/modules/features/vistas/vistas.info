@@ -26,7 +26,5 @@ features[variable][] = views_ui_show_master_display
 features[views_view][] = home
 features[views_view][] = listado_de_productos
 features[views_view][] = productos_destacados
-features[views_view][] = productos_relacionados
 features[views_view][] = review_mas_reciente
-features[views_view][] = slider_ofertas
 project path = sites/all/modules/features
