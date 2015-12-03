@@ -84,80 +84,6 @@ function vistas_views_default_views() {
   $export['home'] = $view;
 
   $view = new view();
-  $view->name = 'listado_de_categorias';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'taxonomy_term_data';
-  $view->human_name = 'Listado de categorías';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Listado de categorías';
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '8';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'name',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'ds';
-  $handler->display->display_options['row_options']['view_mode'] = 'full';
-  $handler->display->display_options['row_options']['alternating'] = 0;
-  $handler->display->display_options['row_options']['advanced'] = 0;
-  $handler->display->display_options['row_options']['delta_fieldset']['delta_fields'] = array();
-  $handler->display->display_options['row_options']['default_fieldset']['view_mode'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_0'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_1'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_2'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_3'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_4'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_5'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_6'] = 'full';
-  $handler->display->display_options['row_options']['alternating_fieldset']['item_7'] = 'full';
-  /* Field: Taxonomy term: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'categorias' => 'categorias',
-  );
-
-  /* Display: Listado de categorías */
-  $handler = $view->new_display('block', 'Listado de categorías', 'block');
-  $translatables['listado_de_categorias'] = array(
-    t('Master'),
-    t('Listado de categorías'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-  );
-  $export['listado_de_categorias'] = $view;
-
-  $view = new view();
   $view->name = 'listado_de_productos';
   $view->description = '';
   $view->tag = 'default';
@@ -446,7 +372,7 @@ function vistas_views_default_views() {
     'producto' => 'producto',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Field: Rating (field_rating:rating) */
+  /* Filter criterion: Field: Avarage Rating (field_rating:rating) */
   $handler->display->display_options['filters']['field_rating_rating']['id'] = 'field_rating_rating';
   $handler->display->display_options['filters']['field_rating_rating']['table'] = 'field_data_field_rating';
   $handler->display->display_options['filters']['field_rating_rating']['field'] = 'field_rating_rating';
