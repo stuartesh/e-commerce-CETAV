@@ -76,43 +76,6 @@ function tipo_de_producto_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_imagen'.
-  $field_bases['field_imagen'] = array(
-    'active' => 1,
-    'cardinality' => 4,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_imagen',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
-    'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'image',
-  );
-
-  // Exported field_base: 'field_precio'.
-  $field_bases['field_precio'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_precio',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'number',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'number_integer',
-  );
-
   // Exported field_base: 'field_rating'.
   $field_bases['field_rating'] = array(
     'active' => 1,
