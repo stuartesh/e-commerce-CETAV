@@ -12,41 +12,6 @@ function display_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'comment|comment_node_article|default';
-  $ds_fieldsetting->entity_type = 'comment';
-  $ds_fieldsetting->bundle = 'comment_node_article';
-  $ds_fieldsetting->view_mode = 'default';
-  $ds_fieldsetting->settings = array(
-    'post_date' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'ds_post_date_long',
-    ),
-    'submitted' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
-    'title' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
-    'author' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
-    'ds_user_picture' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'ds_picture_medium',
-    ),
-  );
-  $export['comment|comment_node_article|default'] = $ds_fieldsetting;
-
-  $ds_fieldsetting = new stdClass();
-  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'comment|comment_node_producto|comentario_mas_reciente';
   $ds_fieldsetting->entity_type = 'comment';
   $ds_fieldsetting->bundle = 'comment_node_producto';
@@ -64,31 +29,6 @@ function display_ds_field_settings_info() {
     ),
   );
   $export['comment|comment_node_producto|comentario_mas_reciente'] = $ds_fieldsetting;
-
-  $ds_fieldsetting = new stdClass();
-  $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'comment|comment_node_producto|default';
-  $ds_fieldsetting->entity_type = 'comment';
-  $ds_fieldsetting->bundle = 'comment_node_producto';
-  $ds_fieldsetting->view_mode = 'default';
-  $ds_fieldsetting->settings = array(
-    'title' => array(
-      'weight' => '2',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
-    'author' => array(
-      'weight' => '1',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
-    'ds_user_picture' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'ds_picture_thumbnail_retina',
-    ),
-  );
-  $export['comment|comment_node_producto|default'] = $ds_fieldsetting;
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
@@ -154,26 +94,6 @@ function display_ds_field_settings_info() {
     ),
   );
   $export['taxonomy_term|categorias|categorias'] = $ds_fieldsetting;
-
-  $ds_fieldsetting = new stdClass();
-  $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'taxonomy_term|categorias|default';
-  $ds_fieldsetting->entity_type = 'taxonomy_term';
-  $ds_fieldsetting->bundle = 'categorias';
-  $ds_fieldsetting->view_mode = 'default';
-  $ds_fieldsetting->settings = array(
-    'title' => array(
-      'weight' => '0',
-      'label' => 'hidden',
-      'format' => 'default',
-      'formatter_settings' => array(
-        'link' => '1',
-        'wrapper' => 'p',
-        'class' => '',
-      ),
-    ),
-  );
-  $export['taxonomy_term|categorias|default'] = $ds_fieldsetting;
 
   return $export;
 }
@@ -475,38 +395,6 @@ function display_ds_layout_settings_info() {
     'layout_link_custom' => '',
   );
   $export['node|producto|teaser'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
-  $ds_layout->id = 'taxonomy_term|categorias|default';
-  $ds_layout->entity_type = 'taxonomy_term';
-  $ds_layout->bundle = 'categorias';
-  $ds_layout->view_mode = 'default';
-  $ds_layout->layout = 'ds_reset';
-  $ds_layout->settings = array(
-    'regions' => array(
-      'ds_content' => array(
-        0 => 'title',
-      ),
-    ),
-    'fields' => array(
-      'title' => 'ds_content',
-    ),
-    'classes' => array(
-      'layout_class' => array(
-        '' => '',
-      ),
-    ),
-    'wrappers' => array(
-      'ds_content' => 'div',
-    ),
-    'layout_wrapper' => 'div',
-    'layout_attributes' => '',
-    'layout_attributes_merge' => TRUE,
-    'layout_link_attribute' => FALSE,
-    'layout_link_custom' => '',
-  );
-  $export['taxonomy_term|categorias|default'] = $ds_layout;
 
   return $export;
 }
