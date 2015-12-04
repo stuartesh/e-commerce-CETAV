@@ -24,7 +24,7 @@ function display_strongarm() {
   $strongarm->value = array(
     'flexslider_example_thumbnail' => TRUE,
     'productos_relacionados_taxonomia' => TRUE,
-    'prendas_relacionadas' => TRUE,
+    'prendas_relacionadas' => FALSE,
   );
   $export['context_status'] = $strongarm;
 

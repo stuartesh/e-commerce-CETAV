@@ -126,6 +126,20 @@ function comentarios_field_default_field_instances() {
       'default' => array(
         'label' => 'hidden',
         'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'ultimo_del_producto' => array(
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(
           'trim_length' => 100,
         ),
@@ -178,6 +192,34 @@ function comentarios_field_default_field_instances() {
         'module' => 'fivestar',
         'settings' => array(
           'expose' => TRUE,
+          'style' => 'user',
+          'text' => 'user',
+          'widget' => array(
+            'fivestar_widget' => 'sites/all/modules/fivestar/widgets/basic/basic.css',
+          ),
+        ),
+        'type' => 'fivestar_formatter_default',
+        'weight' => 3,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'fivestar',
+        'settings' => array(
+          'expose' => TRUE,
+          'style' => 'user',
+          'text' => 'user',
+          'widget' => array(
+            'fivestar_widget' => 'sites/all/modules/fivestar/widgets/basic/basic.css',
+          ),
+        ),
+        'type' => 'fivestar_formatter_default',
+        'weight' => 2,
+      ),
+      'ultimo_del_producto' => array(
+        'label' => 'hidden',
+        'module' => 'fivestar',
+        'settings' => array(
+          'expose' => TRUE,
           'style' => 'average',
           'text' => 'average',
           'widget' => array(
@@ -185,7 +227,7 @@ function comentarios_field_default_field_instances() {
           ),
         ),
         'type' => 'fivestar_formatter_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'comment',

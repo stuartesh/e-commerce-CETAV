@@ -16,34 +16,8 @@ function display_context_default_contexts() {
   $context->name = 'prendas_relacionadas';
   $context->description = 'Muestra el bloque de productos relacionados cuando se está viendo un producto.';
   $context->tag = '';
-  $context->conditions = array(
-    'node' => array(
-      'values' => array(
-        'producto' => 'producto',
-      ),
-      'options' => array(
-        'node_form' => '1',
-      ),
-    ),
-  );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'views-12bfab818481b634db145907c8e6ff1b' => array(
-          'module' => 'views',
-          'delta' => '12bfab818481b634db145907c8e6ff1b',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
-        'views-dfec8c15c87925e2a4be6a68e0181693' => array(
-          'module' => 'views',
-          'delta' => 'dfec8c15c87925e2a4be6a68e0181693',
-          'region' => 'content',
-          'weight' => '-9',
-        ),
-      ),
-    ),
-  );
+  $context->conditions = array();
+  $context->reactions = array();
   $context->condition_mode = 0;
 
   // Translatables

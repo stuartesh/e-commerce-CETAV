@@ -114,7 +114,7 @@ function display_ds_custom_fields_info() {
   );
   $ds_field->ui_limit = '';
   $ds_field->properties = array(
-    'block' => 'views|dfec8c15c87925e2a4be6a68e0181693',
+    'block' => 'views|732a6c19209d9b8d4c3df6b05da0820d',
     'block_render' => '2',
   );
   $export['productos_relacionados'] = $ds_field;
@@ -160,8 +160,8 @@ function display_ds_layout_settings_info() {
         2 => 'field_fabricante',
         3 => 'field_rating',
         4 => 'field_precio',
-        5 => 'field_descripcion',
-        6 => 'ultimo_comentario',
+        5 => 'ultimo_comentario',
+        6 => 'field_descripcion',
       ),
       'footer' => array(
         7 => 'field_video_producto',
@@ -175,8 +175,8 @@ function display_ds_layout_settings_info() {
       'field_fabricante' => 'left',
       'field_rating' => 'left',
       'field_precio' => 'left',
-      'field_descripcion' => 'left',
       'ultimo_comentario' => 'left',
+      'field_descripcion' => 'left',
       'field_video_producto' => 'footer',
       'productos_relacionados' => 'footer',
       'comments' => 'footer',

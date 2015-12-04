@@ -325,17 +325,23 @@ function vistas_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Productos Destacados';
+  $handler->display->display_options['title'] = 'Prendas Destacadas';
+  $handler->display->display_options['css_class'] = 'featured-items';
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '4';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
-  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['pager']['options']['items_per_page'] = '3';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'semanticviews_default';
+  $handler->display->display_options['style_options']['list']['element_type'] = 'ul';
+  $handler->display->display_options['style_options']['list']['class'] = 'featured-items';
+  $handler->display->display_options['style_options']['row']['element_type'] = 'li';
+  $handler->display->display_options['style_options']['row']['first_class'] = '';
+  $handler->display->display_options['style_options']['row']['last_class'] = '';
+  $handler->display->display_options['style_options']['row']['striping_classes'] = '';
   $handler->display->display_options['row_plugin'] = 'ds';
   $handler->display->display_options['row_options']['view_mode'] = 'destacados';
   $handler->display->display_options['row_options']['load_comments'] = 0;
@@ -357,6 +363,10 @@ function vistas_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Global: Random */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -372,18 +382,16 @@ function vistas_views_default_views() {
     'producto' => 'producto',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filter criterion: Field: Avarage Rating (field_rating:rating) */
-  $handler->display->display_options['filters']['field_rating_rating']['id'] = 'field_rating_rating';
-  $handler->display->display_options['filters']['field_rating_rating']['table'] = 'field_data_field_rating';
-  $handler->display->display_options['filters']['field_rating_rating']['field'] = 'field_rating_rating';
-  $handler->display->display_options['filters']['field_rating_rating']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_rating_rating']['value']['value'] = '3';
-
-  /* Display: Productos Destacados */
-  $handler = $view->new_display('block', 'Productos Destacados', 'block');
+  /* Filter criterion: Content: Updated/commented date */
+  $handler->display->display_options['filters']['last_updated']['id'] = 'last_updated';
+  $handler->display->display_options['filters']['last_updated']['table'] = 'node_comment_statistics';
+  $handler->display->display_options['filters']['last_updated']['field'] = 'last_updated';
+  $handler->display->display_options['filters']['last_updated']['operator'] = '>=';
+  $handler->display->display_options['filters']['last_updated']['value']['value'] = '-3 day';
+  $handler->display->display_options['filters']['last_updated']['value']['type'] = 'offset';
   $translatables['productos_destacados'] = array(
     t('Master'),
-    t('Productos Destacados'),
+    t('Prendas Destacadas'),
     t('more'),
     t('Apply'),
     t('Reset'),
@@ -439,7 +447,7 @@ function vistas_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
-  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'comentario_mas_reciente';
+  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'ultimo_del_producto';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
   /* Sort criterion: Comment: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
